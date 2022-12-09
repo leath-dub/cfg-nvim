@@ -9,7 +9,7 @@ require "dep" {
     function() return SetTheme('everforest') end,
     setup = function()
       vim.g.everforest_better_performance = 1
-      vim.g.everforest_background = 'hard'
+      vim.g.everforest_background = 'medium'
     end
   },
   {
@@ -28,7 +28,7 @@ require "dep" {
       "nvim-treesitter/nvim-treesitter",
       setup = function()
         require('nvim-treesitter.configs').setup {
-          ensure_installed = { 'c', 'lua' },
+          ensure_installed = { 'c', 'lua', 'vim', 'help' },
           sync_install = false,
           highlight = {
             enable = true,
