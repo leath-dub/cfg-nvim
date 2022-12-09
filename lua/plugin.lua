@@ -48,6 +48,8 @@ return require('packer').startup({function(use)
     requires = {'tree-sitter/tree-sitter'},
     config = function()
       require('nvim-treesitter.configs').setup {
+        ensure_installed = { 'c', 'lua' },
+        sync_install = false,
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false
@@ -55,6 +57,7 @@ return require('packer').startup({function(use)
       }
     end
   }
+
   use {
     'nvim-treesitter/nvim-treesitter-context',
     requires = {'nvim-treesitter/nvim-treesitter'}
