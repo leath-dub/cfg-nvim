@@ -2,8 +2,8 @@ function SetTheme(name)
   vim.cmd('silent! colorscheme ' .. name)
 end
 
-require "bootstrap"
-require "dep" {
+require("bootstrap")
+require("dep") {
   {
     "sainnhe/everforest",
     function() return SetTheme('everforest') end,
