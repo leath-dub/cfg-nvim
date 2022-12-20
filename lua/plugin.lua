@@ -2,6 +2,9 @@ function SetTheme(name)
   vim.cmd('silent! colorscheme ' .. name)
 end
 
+-- TODO move configs to after/plugin
+-- TODO setup Mason for language servers
+
 require("bootstrap")
 require("dep") {
   {
@@ -22,6 +25,7 @@ require("dep") {
     "ThePrimeagen/harpoon",
     requires = "nvim-lua/plenary.nvim"
   },
+  "mbbill/undotree",
   {
     "tree-sitter/tree-sitter",
     deps = {{

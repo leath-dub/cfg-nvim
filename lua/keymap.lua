@@ -15,6 +15,12 @@ vim.keymap.set('n', '<c-u>', 'M<c-u>')
 vim.keymap.set('n', '<leader>s', ':w<cr>')
 vim.keymap.set('n', '<leader>q', ':bd<cr>')
 
+-- Netrw
+vim.keymap.set('n', '<leader>pv', vim.cmd.Explore)
+
+-- undotree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
 -- harpoon
 vim.keymap.set('n', '<leader>h', function() return require('harpoon.ui').toggle_quick_menu() end)
 vim.keymap.set('n', '<leader>m', function() return require('harpoon.mark').add_file() end)
