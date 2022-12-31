@@ -27,6 +27,18 @@ require("dep") {
   },
   "mbbill/undotree",
   {
+    "williamboman/mason.nvim",
+    function()
+      require('mason').setup()
+    end,
+    deps = {{
+      "williamboman/mason-lspconfig.nvim",
+      function()
+        require('mason-lspconfig').setup()
+      end
+    }}
+  },
+  {
     "tree-sitter/tree-sitter",
     deps = {{
       "nvim-treesitter/nvim-treesitter",

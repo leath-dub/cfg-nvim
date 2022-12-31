@@ -83,6 +83,7 @@ acmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal nonumber norelativenumb
 acmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal signcolumn=no"})
 acmd({"BufRead", "BufNewFile"}, {pattern = {"*.ms", "*.me", "*.mom"}, command = "setlocal filetype=groff"})
 acmd({"BufRead", "BufNewFile"}, {pattern = {"*.mkd", "*.md", "*.mdown", "*.markdown"}, command = "setlocal spell"})
+acmd({"BufRead", "BufNewFile"}, {pattern = {"*.p8"}, command = "set filetype=lua"})
 
 vim.cmd('filetype plugin on')
 acmd({"FileType"}, {pattern = {"php"}, command = "setl ofu=phpcomplete#CompletePHP"})
@@ -109,9 +110,8 @@ end
 vim.cmd('command! Trim lua clearTrail()')
 
 -- Abbreviations
-vim.cmd(
-  [[
-    iab {} {<cr>}<esc>O<tab><bs><space>
-  ]]
-)
-acmd( {"BufRead", "BufNewFile"}, {pattern = {"*.c", "*.h"}, command ="iab std. #include<space><stdio.h><cr><cr>int<cr>main(int<space>argc,<space>char<space>*argv[])<cr>{<cr>return<space>0;<cr>}<esc>kO<bs><space>"})
+-- vim.cmd(
+--   [[
+--     iab {} {<cr>}<esc>O<tab><bs><space>
+--   ]]
+-- )
