@@ -7,6 +7,7 @@ end
 
 require("bootstrap")
 require("dep") {
+  require("plugin.neogit"),
   require("plugin.nvim-colorizer"),
   require("plugin.markdown-preview"),
   require("plugin.everforest"),
