@@ -3,7 +3,7 @@ return {
   function()
     require("neogit").setup()
   end,
-  deps = {
+  requires = {
     "nvim-lua/plenary.nvim"
   }
 }
