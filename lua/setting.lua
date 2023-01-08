@@ -60,7 +60,7 @@ function indentN(n)
 end
 
 vim.opt.list = true
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.colorcolumn = '80'
 
 -- Term gui if not in tty
