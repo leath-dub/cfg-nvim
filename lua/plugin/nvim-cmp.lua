@@ -1,7 +1,10 @@
 return {
   "hrsh7th/nvim-cmp",
   function()
-    local cmp = require("cmp")
+    local ok, cmp = pcall(require, "cmp")
+    if not ok then
+      return {}
+    end
     if cmp ~= nil then cmp.setup({
       snippet = {
         expand = function(args)
@@ -14,14 +17,33 @@ return {
         }
       }),
       sources = {
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", max_item_count = 20 },
+        { name = "nvim_lsp_signature_help" },
         { name = "buffer", keyword_length = 5 },
-        { name = "path" }
+        { name = "path" },
+        { name = "luasnip" }
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       experimental = {
         native_menu = false,
         ghost_text = true
       }
+    })
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "buffer", max_item_count = 20 },
+        { name = "path", max_item_count = 20 },
+      }),
+    })
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "cmdline", max_item_count = 8 },
+      }),
     })
     end
   end,

@@ -1,4 +1,10 @@
 return {
     "leath-dub/stat.nvim",
-    function() return require("stat").setup {} end
+    function()
+      local ok, stat = pcall(require, "stat")
+      if not ok then
+        return {}
+      end
+      stat.setup {}
+    end
 }

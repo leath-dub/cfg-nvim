@@ -22,13 +22,6 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Explore)
 -- undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
--- harpoon
-vim.keymap.set('n', '<leader>h', function() return require('harpoon.ui').toggle_quick_menu() end)
-vim.keymap.set('n', '<leader>m', function() return require('harpoon.mark').add_file() end)
-vim.keymap.set('n', '<leader>a', function() return require('harpoon.ui').nav_next() end)
-vim.keymap.set('n', '<leader>;', function() return require('harpoon.ui').nav_prev() end)
-vim.keymap.set('t', '<c-n>h', function() return require('harpoon.ui').toggle_quick_menu() end)
-
 -- comment
 vim.keymap.set('v', '<leader>c', 'o<esc>O/*<esc>gvo<esc>o*/')
 

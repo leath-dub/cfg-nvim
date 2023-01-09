@@ -8,13 +8,11 @@ end
 require("bootstrap")
 require("dep") {
   require("plugin.neogit"),
+  require("plugin.fidget"),
+  require("plugin.grapple"),
   require("plugin.nvim-colorizer"),
   require("plugin.markdown-preview"),
   require("plugin.everforest"),
-  {
-    "ThePrimeagen/harpoon",
-    requires = "nvim-lua/plenary.nvim"
-  },
   "mbbill/undotree",
   require("plugin.mason"),
   require("plugin.treesitter"),

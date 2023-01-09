@@ -3,7 +3,11 @@ return {
   deps = {{
     "nvim-treesitter/nvim-treesitter",
     function()
-      require('nvim-treesitter.configs').setup {
+      local ok, nvim_treesitter_config = pcall(require, "nvim-treesitter.configs")
+      if not ok then
+        return {}
+      end
+      nvim_treesitter_config.setup {
         ensure_installed = { 'c', 'lua', 'vim', 'help', 'python' },
         sync_install = false,
         highlight = {
