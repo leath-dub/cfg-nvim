@@ -10,15 +10,12 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 vim.opt.fileencoding = 'utf-8'
 vim.opt.foldmethod = 'marker'
-
 vim.opt.guicursor = ''
-
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.signcolumn = 'number'
-
 vim.opt.listchars = {
   space = '·',
   extends = '<',
@@ -26,14 +23,10 @@ vim.opt.listchars = {
   trail = '¬',
   tab = '| '
 }
-
 vim.opt.cinoptions =
   [[
     >s,e0,n0,f0,{1s,},^0,L-1,:s,=s,l0,b0,gs,hs,N0,E0,ps,ts,is,+s
   ]]
-
-
--- completion
 vim.opt.completeopt = {
   "menu", "menuone"
 }
@@ -77,41 +70,27 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'both'
 
 -- autocmds
-local acmd = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 
-acmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal nonumber norelativenumber"})
-acmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal signcolumn=no"})
-acmd({"BufRead", "BufNewFile"}, {pattern = {"*.ms", "*.me", "*.mom"}, command = "setlocal filetype=groff"})
-acmd({"BufRead", "BufNewFile"}, {pattern = {"*.mkd", "*.md", "*.mdown", "*.markdown"}, command = "setlocal spell"})
-acmd({"BufRead", "BufNewFile"}, {pattern = {"*.p8"}, command = "set filetype=lua"})
+autocmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal nonumber norelativenumber"})
+autocmd({"TermOpen"}, {pattern = {"*"}, command = "setlocal signcolumn=no"})
+autocmd({"BufRead", "BufNewFile"}, {pattern = {"*.ms", "*.me", "*.mom"}, command = "setlocal filetype=groff"})
+autocmd({"BufRead", "BufNewFile"}, {pattern = {"*.mkd", "*.md", "*.mdown", "*.markdown"}, command = "setlocal spell"})
+autocmd({"BufRead", "BufNewFile"}, {pattern = {"*.p8"}, command = "set filetype=lua"})
 
 vim.cmd('filetype plugin on')
-acmd({"FileType"}, {pattern = {"php"}, command = "setl ofu=phpcomplete#CompletePHP"})
-acmd({"FileType"}, {pattern = {"ruby", "eruby"}, command = "setl ofu=rubycomplete#Complete"})
-acmd({"FileType"}, {pattern = {"html", "xhtml"}, command = "setl ofu=htmlcomplete#CompleteTags"})
-acmd({"FileType"}, {pattern = {"c"}, command = "setl ofu=ccomplete#Complete | lua indentN(4) indentLine()"})
-acmd({"FileType"}, {pattern = {"css"}, command = "setl ofu=csscomplete#CompleteCSS"})
-acmd({"Filetype"}, {pattern = {"python"}, command = "setl ofu=python3complete#Complete | lua indentLine()"})
-acmd({"Filetype"}, {pattern = {"python"}, command = "lua indentLine()"})
-acmd({"Filetype"}, {pattern = {"rust"}, command = "setl shiftwidth=4 | lua indentLine()"})
-acmd({"Filetype"}, {pattern = {"sh"}, command = "lua indentN(4) indentLine()"})
-acmd({"FileType"}, {pattern = {"go"}, command = "lua indentN(4) indentLine()"})
+vim.cmd('set omnifunc=syntaxcomplete#Complete')
+autocmd({"FileType"}, {pattern = {"c"}, command = "lua indentN(4) indentLine()"})
+autocmd({"Filetype"}, {pattern = {"python"}, command = "lua indentLine()"})
+autocmd({"Filetype"}, {pattern = {"python"}, command = "lua indentLine()"})
+autocmd({"Filetype"}, {pattern = {"rust"}, command = "lua indentLine()"})
+autocmd({"Filetype"}, {pattern = {"sh"}, command = "lua indentN(4) indentLine()"})
+autocmd({"FileType"}, {pattern = {"go"}, command = "lua indentN(4) indentLine()"})
 -- call indentline here so filetype is set
 indentLine()
-
--- functions
-function fzfOpen()
-end
 
 function clearTrail()
   vim.cmd('s/ *$//g')
   vim.cmd('noh')
 end
 vim.cmd('command! Trim lua clearTrail()')
-
--- Abbreviations
--- vim.cmd(
---   [[
---     iab {} {<cr>}<esc>O<tab><bs><space>
---   ]]
--- )
