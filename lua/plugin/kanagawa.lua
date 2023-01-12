@@ -17,7 +17,6 @@ return {
         CursorLineNr = { bold = false },
         CursorLine = { bg = colors.bg_light0, bold = false },
         MatchParen = { bold = false },
-        LineNr = { bg = colors.bg_light0 },
         ["@keyword.operator"] = { bold = false }
       }
     }
