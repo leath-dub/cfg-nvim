@@ -12,7 +12,7 @@ require("dep") {
   require("plugin.grapple"),
   require("plugin.nvim-colorizer"),
   require("plugin.markdown-preview"),
-  require("plugin.everforest"),
+  require("plugin.colorscheme"),
   "mbbill/undotree",
   require("plugin.mason"),
   require("plugin.treesitter"),
