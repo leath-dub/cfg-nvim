@@ -1,6 +1,8 @@
 return {
   "sainnhe/everforest",
-  function() return SetTheme('everforest') end,
+  function()
+    vim.cmd("colorscheme everforest")
+  end,
   setup = function()
     vim.g.everforest_better_performance = 1
     vim.g.everforest_background = 'medium'
