@@ -12,6 +12,9 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    lspconfig.jdtls.setup { root_dir = lspconfig.util.root_pattern('.git') }
+    lspconfig.sumneko_lua.setup {}
+
     -- pip install python-lsp-server
     lspconfig.pylsp.setup {
       settings = {

@@ -17,7 +17,6 @@ return {
         }
       }),
       sources = {
-        { name = "omni" },
         { name = "nvim_lsp", max_item_count = 20 },
         { name = "nvim_lsp_signature_help" },
         { name = "buffer", keyword_length = 5 },
@@ -54,7 +53,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-omni" -- for omnifunc source
+    "hrsh7th/cmp-cmdline"
   },
 }
