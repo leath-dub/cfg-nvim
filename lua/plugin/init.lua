@@ -19,3 +19,6 @@ require("dep") {
   require("plugin.telescope"),
   require("plugin.nvim-cmp")
 }
+require("lazy").setup(
+{}
+)
