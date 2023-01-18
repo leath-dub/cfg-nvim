@@ -1,9 +1,5 @@
 vim.g.mapleader = " "
 
--- Telescope
-vim.keymap.set('n', '<leader>ff', function () return require('telescope.builtin').find_files() end)
-vim.keymap.set('n', '<leader>fg', function () return require('telescope.builtin').live_grep() end)
-
 -- Copying and pasteing X11
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
 vim.keymap.set("x", "<leader>p", "\"_bP")

@@ -1,9 +1,9 @@
 return {
   "sainnhe/everforest",
-  function()
+  config = function()
     vim.cmd("colorscheme everforest")
   end,
-  setup = function()
+  init = function()
     vim.g.everforest_better_performance = 1
     vim.g.everforest_enable_italic = 1
     vim.g.everforest_diagnostic_text_highlight = 1

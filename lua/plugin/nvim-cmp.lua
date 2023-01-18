@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
-  function()
+  event = "UIEnter",
+  config = function()
     local ok, cmp = pcall(require, "cmp")
     if not ok then
       return {}
@@ -47,12 +48,12 @@ return {
     })
     end
   end,
-  requires = {
+  dependencies = {
     require("plugin.nvim-lspconfig"),
     require("plugin.luasnip"),
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline"
-  },
+  }
 }

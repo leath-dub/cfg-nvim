@@ -1,6 +1,7 @@
 return {
   "NvChad/nvim-colorizer.lua",
-  function()
+  event = "Colorscheme",
+  config = function()
     local ok, colorizer = pcall(require, "colorizer")
     if not ok then
       return {}

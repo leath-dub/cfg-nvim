@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  function()
+  lazy = false,
+  config = function()
     local ok, lspconfig = pcall(require, 'lspconfig')
     if not ok then
       return {}

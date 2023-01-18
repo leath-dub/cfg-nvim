@@ -1,6 +1,6 @@
 return {
   "rebelot/kanagawa.nvim",
-  function()
+  config = function()
     local ok, kanagawa = pcall(require, "kanagawa")
     if not ok then
       return nil
@@ -22,9 +22,7 @@ return {
     }
     vim.cmd("colorscheme kanagawa")
   end,
-  setup = function()
-  end,
-  deps = {
+  dependencies = {
     require("plugin.stat")
   }
 }

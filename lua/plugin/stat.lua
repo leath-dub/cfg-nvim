@@ -1,6 +1,7 @@
 return {
   "leath-dub/stat.nvim",
-  function()
+  event = "Colorscheme",
+  config = function()
     local ok, stat = pcall(require, "stat")
     if not ok then
       return {}

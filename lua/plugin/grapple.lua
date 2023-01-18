@@ -1,6 +1,7 @@
 return {
   "cbochs/grapple.nvim",
-  function ()
+  event = "UIEnter",
+  config = function ()
     local ok, grapple = pcall(require, "grapple")
     if not ok then
       return {}
@@ -31,10 +32,7 @@ return {
     end
     vim.keymap.set("n", "<leader>gtd", tag_dir)
   end,
-  function()
-    local ok, mason = pcall(require, "mason")
-  end,
-  requires = {
+  dependencies = {
     "nvim-lua/plenary.nvim"
   }
 }
