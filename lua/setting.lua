@@ -16,6 +16,8 @@ vim.opt.splitright = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.signcolumn = 'number'
+vim.g.netrw_winsize = 30
+vim.g.netrw_banner = 0
 vim.opt.listchars = {
   space = '·',
   extends = '<',
@@ -86,11 +88,6 @@ autocmd({"Filetype"}, {pattern = {"python"}, command = "lua indentLine()"})
 autocmd({"Filetype"}, {pattern = {"rust"}, command = "lua indentLine()"})
 autocmd({"Filetype"}, {pattern = {"sh"}, command = "lua indentN(4) indentLine()"})
 autocmd({"FileType"}, {pattern = {"go"}, command = "lua indentN(4) indentLine()"})
+autocmd({"FileType"}, {pattern = {"java"}, command = "lua indentN(4) indentLine()"})
 -- call indentline here so filetype is set
 indentLine()
-
-function clearTrail()
-  vim.cmd('s/ *$//g')
-  vim.cmd('noh')
-end
-vim.cmd('command! Trim lua clearTrail()')

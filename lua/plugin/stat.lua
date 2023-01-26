@@ -6,17 +6,17 @@ return {
     if not ok then
       return {}
     end
-    local ___ = __Stat__.___
+    local ___ = Stat.___
     stat.setup {
       winbar = {
         ___,
-        __Stat__.mod.file()
+        Stat.mod.file()
       },
       statusline = {
         ___,
-        __Stat__.mod.mode,
-        __Stat__.mod.filetype,
-        __Stat__.mod.git_diff
+        Stat.mod.mode,
+        Stat.mod.filetype,
+        Stat.mod.git_diff
       },
       theme = {
         ["N"] = { fg = "#1f1f28", bg = "#7aa89f" },

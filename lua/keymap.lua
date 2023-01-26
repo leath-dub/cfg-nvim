@@ -14,6 +14,7 @@ vim.keymap.set('n', '<leader>q', ':bd<cr>')
 
 -- Netrw
 vim.keymap.set('n', '<leader>pv', vim.cmd.Explore)
+vim.keymap.set('n', '<leader>pb', vim.cmd.Lexplore)
 
 -- undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
@@ -25,7 +26,6 @@ vim.keymap.set('v', '<leader>c', 'o<esc>O/*<esc>gvo<esc>o*/')
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- TODO set preview when selecting options ( the hover functionality )
     vim.opt.omnifunc = "v:lua.vim.lsp.omnifunc"
     vim.keymap.set('i', '<c-n>', '<c-x><c-o><esc>:lua vim.lsp.buf.hover()<cr>a', { buffer = args.buf })
     if client.server_capabilities.hoverProvider then
@@ -36,3 +36,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+vim.keymap.set("n", "<leader><leader>", "<c-^>", { noremap = true })

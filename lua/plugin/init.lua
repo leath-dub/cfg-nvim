@@ -4,7 +4,6 @@ require("lazy").setup {
   require("plugin.fidget"),
   require("plugin.grapple"),
   require("plugin.nvim-colorizer"),
-  require("plugin.markdown-preview"),
   require("plugin.colorscheme"),
   "mbbill/undotree",
   require("plugin.mason"),

@@ -1,6 +1,5 @@
 return {
   "williamboman/mason.nvim",
-  cmd = "Mason",
   config = function()
     local ok, mason = pcall(require, "mason")
     if not ok then

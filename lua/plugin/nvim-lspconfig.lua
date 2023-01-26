@@ -13,8 +13,23 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    lspconfig.jdtls.setup { root_dir = lspconfig.util.root_pattern('.git') }
-    lspconfig.sumneko_lua.setup {}
+    lspconfig.jdtls.setup { single_file_support = true }
+    lspconfig.sumneko_lua.setup {
+      settings = {
+        Lua = {
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file('', true),
+          },
+          diagnostics = {
+            globals = {"vim"}
+          },
+          telemetry = {
+            enable = false
+          }
+        }
+      }
+    }
 
     -- pip install python-lsp-server
     lspconfig.pylsp.setup {
@@ -32,18 +47,20 @@ return {
 
     lspconfig.rust_analyzer.setup {}
 
+    lspconfig.clangd.setup {}
+
     -- C/C++ lsp
-    lspconfig.ccls.setup {
-      init_options = {
-        compilationDatabaseDirectory = "build";
-        index = {
-          threads = 0;
-        };
-        clang = {
-          excludeArgs = { "-frounding-math"} ;
-        };
-      }
-    }
+    -- lspconfig.ccls.setup {
+    --   init_options = {
+    --     compilationDatabaseDirectory = "build";
+    --     index = {
+    --       threads = 0;
+    --     };
+    --     clang = {
+    --       excludeArgs = { "-frounding-math"} ;
+    --     };
+    --   }
+    -- }
 
     -- Typescript lsp
     lspconfig.denols.setup {}
